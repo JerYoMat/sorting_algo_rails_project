@@ -1,6 +1,6 @@
 <% provide(:title, 'Sign up') %>
 
-<h1>It's better if you sign up!</h1>
+<h1>Our gnraly picture ratings are more accurate if you sign up!</h1>
 
 <div class='row'>
   <div class="col-md-6 col-md-offset-3">
@@ -25,7 +25,8 @@
         <%= label :smoker, 'Yes' %><br>
         <%= f.radio_button :smoker, 'no' %> 
         <%= label :smoker, 'No' %>
-       
+        <%= f.label :cigs_per_day %>
+        <%= f.number_field :cigs_per_day%>
        
       </div>
       <br>
