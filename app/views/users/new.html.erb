@@ -20,10 +20,13 @@
     
        <div>
        <p>Are you a smoker?  We don't judge and definitely do not share this info!  </p>
-       <%= radio_button_tag(:smoker, true) %>
-       <%= label_tag(:smoker, "Yes") %>
-       <%= radio_button_tag(:smoker, false) %>
-       <%= label_tag(:non_smoker, "No") %><br>
+       
+        <%= f.radio_button :smoker, 'yes' %> 
+        <%= label :smoker, 'Yes' %><br>
+        <%= f.radio_button :smoker, 'no' %> 
+        <%= label :smoker, 'No' %>
+       
+       
       </div>
       <br>
 
