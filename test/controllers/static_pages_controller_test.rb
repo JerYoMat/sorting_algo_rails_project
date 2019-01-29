@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class StaticPagesControllerTest < ActionDispatch::IntegrationTest
+  test "should get root" do
+    get root_url
+    assert_response :success
+  end
+  
   #Added by generating the controller and makes sure that a 200 status code is returned when the home url is visited
   test "should get home" do
     get static_pages_home_url
