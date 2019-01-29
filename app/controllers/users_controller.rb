@@ -1,5 +1,6 @@
+require 'pry'
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :create]
+  before_action :set_user, only: [:show]
   
   def new
     @user = User.new 
@@ -9,8 +10,9 @@ class UsersController < ApplicationController
     set_user
   end 
 
-  def create 
-    #some stuff
+  def create
+  
+    @user = User.new(user_params)
     if @user.save 
     else 
       render 'new'

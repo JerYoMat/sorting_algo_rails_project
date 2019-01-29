@@ -5,6 +5,7 @@
 <div class='row'>
   <div class="col-md-6 col-md-offset-3">
      <%= form_for(@user) do |f|%>
+        <%= render '/shared/error_messages'%>
        <%= f.label :name %>
        <%= f.text_field :name %><br>
        
@@ -21,9 +22,9 @@
        <div>
        <p>Are you a smoker?  We don't judge and definitely do not share this info!  </p>
        
-        <%= f.radio_button :smoker, 'yes' %> 
+        <%= f.radio_button :smoker, 1 %> 
         <%= label :smoker, 'Yes' %><br>
-        <%= f.radio_button :smoker, 'no' %> 
+        <%= f.radio_button :smoker, 0 %> 
         <%= label :smoker, 'No' %>
         <%= f.label :cigs_per_day %>
         <%= f.number_field :cigs_per_day%>
