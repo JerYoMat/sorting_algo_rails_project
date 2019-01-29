@@ -2,7 +2,7 @@ require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
   def setup #setup method automaticall is run before each test 
-    @user = User.new(name: "UserTest Name", email: "user@usertestcase.com")
+    @user = User.new(name: "UserTest Name", email: "user@usertestcase.com", password: "valid_long_password", password_confirmation: "valid_long_password")
   end 
 
   test "should be valid" do 
@@ -49,5 +49,24 @@ class UserTest < ActiveSupport::TestCase
     duplicate_user.email = @user.email.upcase
     @user.save 
     assert_not duplicate_user.valid?
+  end 
+
+  test "email addresses should exist in db only as lower case" do 
+    mixed_case_email = "CAP@example.com"
+    @user.email = mixed_case_email
+    @user.save 
+    assert_equal mixed_case_email.downcase, @user.reload.email 
+  end 
+
+  test "password should be present" do 
+     @user.password = @user.password_confirmation = " " * 6 
+     assert_not @user.valid?
+  end 
+
+  test "password should be a minimum length" do 
+    @user.password = @user.password_confirmation = "123"
+    assert_not @user.valid?
+    @user.password = @user.password_confirmation = "1234567"
+    assert @user.valid?
   end 
 end
