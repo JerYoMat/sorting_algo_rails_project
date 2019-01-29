@@ -1,10 +1,10 @@
 # Steps and Notes 
 
-1.) Update Gemfile
-  -SQLite3 in dev and test 
-  -pg in production
-  -update test gems
+#rails destroy is the opposite of rails generate
 
-2.) Create Heroku App 
-$ heroku create
-$ git push heroku master
+We can undo a single migration step using
+
+  $ rails db:rollback
+To go all the way back to the beginning, we can use
+
+  $ rails db:migrate VERSION=0
