@@ -1,6 +1,6 @@
 require 'pry'
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit]
+  before_action :set_user, only: [:show, :edit, :update]
   
   def new
     @user = User.new 
@@ -23,9 +23,15 @@ class UsersController < ApplicationController
   def edit 
   end 
 
-  def updated 
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end 
   end 
-  
+
   def index 
   end 
 
