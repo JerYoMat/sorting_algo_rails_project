@@ -8,3 +8,8 @@ test_user_michael:
   name: Test Example
   email: test@example.com
   password_digest: <%= User.digest('password') %>
+
+test_user_angelo:
+  name: Angelo
+  email: something_valid@ggg.de
+  password_digest: <%= User.digest('password') %>
