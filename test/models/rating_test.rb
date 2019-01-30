@@ -6,7 +6,7 @@ class RatingTest < ActiveSupport::TestCase
     @tip = tips(:test_tip1)
     @rating = @user.ratings.build(
       user_id: 1000,
-      rating_id: 1,
+      tip_id: 1,
       stars: 4
       )
 
