@@ -12,4 +12,7 @@ class Tip < ApplicationRecord
   validates :name, presence: true 
   validates :description, presence: true 
   validates :resource_link, presence: true 
+
+  #SCOPE
+  default_scope -> {order(created_at: :desc)}
 end
