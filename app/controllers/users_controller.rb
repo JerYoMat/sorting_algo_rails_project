@@ -46,7 +46,7 @@ private
 
   def user_params
     params.require(:user).permit(:name, :email, :password,
-                               :password_confirmation, :smoker, :cigs_per_day)
+                               :password_confirmation, :has_graduated)
   end
 
   def set_user
