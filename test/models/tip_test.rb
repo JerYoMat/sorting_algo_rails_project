@@ -4,13 +4,12 @@ class TipTest < ActiveSupport::TestCase
   def setup 
     @user = users(:test_user_michael)
     @lesson_topic = lesson_topics(:test_lesson_topic1)
-    @tip = Tip.new(
+    @tip = @user.tips.build(
       name: "test tip 1", 
       description: "Test 1 Description", 
       user_outcome: "Really helped to get down X",
       resource_link: "www.somethinghelpful.com", 
-      lesson_topic_id:  @lesson_topic.id,
-      user_id: @user.id )
+      lesson_topic_id:  @lesson_topic.id)
 
   end 
 
