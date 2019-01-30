@@ -1,8 +1,8 @@
 class User < ApplicationRecord
     #ASSOCIATIONS 
-    has_many :tips 
+    has_many :tips, dependent: :destroy 
     has_many :lesson_topics, through: :tips 
-    has_many :ratings
+    has_many :ratings, dependent: :destroy
     has_many :lesson_topics, through: :ratings 
     
     
