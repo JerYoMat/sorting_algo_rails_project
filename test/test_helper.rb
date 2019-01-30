@@ -7,4 +7,7 @@ class ActiveSupport::TestCase
   fixtures :all
   include ApplicationHelper  #by including this we can now test for the right title by relying on previous work. Not currently in use.
   # Add more helper methods to be used by all tests here...
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
 end
