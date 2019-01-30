@@ -5,11 +5,13 @@
 # below each fixture, per the syntax in the comments below
 #
 test_user_michael:
+  id: 1000
   name: Test Example
   email: test@example.com
   password_digest: <%= User.digest('password') %>
 
 test_user_angelo:
+  id: 1001
   name: Angelo
   email: something_valid@ggg.de
   password_digest: <%= User.digest('password') %>
