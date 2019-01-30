@@ -20,6 +20,9 @@ test:
   <<: *default
   database: db/test.sqlite3
 
+
 production:
   <<: *default
-  database: db/production.sqlite3
+  database: burn_or_spurn_production
+  username: burn_or_spurn
+  password: <%= ENV['BURN_OR_SPURN_DATABASE_PASSWORD'] %>
