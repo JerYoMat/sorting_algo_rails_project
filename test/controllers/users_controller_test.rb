@@ -6,6 +6,11 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
    @user20 = users(:test_user_angelo)
   end 
   
+ test 'validate that users that non-authenticated users cannot see index page' do 
+   get users_path 
+   assert_redirected_to login_url
+ end 
+
   
   test "should get new" do
     get signup_path

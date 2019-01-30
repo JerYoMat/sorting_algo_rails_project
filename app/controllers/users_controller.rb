@@ -1,7 +1,7 @@
 require 'pry'
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
-  before_action :logged_in_user, only:[:edit, :update]
+  before_action :logged_in_user, only:[:edit, :update, :index]
   before_action :correct_user,   only: [:edit, :update]
   def new
     @user = User.new 
@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   end 
 
   def index 
+    @users = User.all 
   end 
 
   def destroy 
