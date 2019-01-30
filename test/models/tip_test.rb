@@ -41,6 +41,10 @@ class TipTest < ActiveSupport::TestCase
     @tip.resource_link = nil 
     assert_not @tip.valid?
   end 
+
+  test 'tips should appear in descending order based on creation' do
+     assert_equal tips(:most_recent), Tip.first 
+  end 
    
 
 end

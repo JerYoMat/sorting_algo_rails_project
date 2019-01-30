@@ -4,9 +4,19 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-test_user_angelo:
+test_tip1:
+  id: 1
   name: String Formatting 
   description: Shows you how to output any strftime format
   resource_link: www.foragoodstrftime.com
   lesson_topic_id: 1
   user_id: 1000
+  created_at: <%=2.hours.ago %>
+
+most_recent:
+  id: 2
+  name: The Most Recent Tip 
+  description: So new!
+  lesson_topic_id: 1
+  user_id: 1000
+  created_at: <%= Time.zone.now %>
