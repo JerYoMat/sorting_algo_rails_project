@@ -1,7 +1,7 @@
 <div class='row'>
   <div class="col-md-6 col-md-offset-3">
      <%= form_for(@user) do |f|%>
-        <%= render '/shared/error_messages'%>
+       <%= render '/shared/error_messages'%>
        <%= f.label :name %>
        <%= f.text_field :name %><br>
        
@@ -16,15 +16,12 @@
 
     
        <div>
-       <p>Are you a smoker?  We don't judge and definitely do not share this info!  </p>
+       <p>Have you graduated from the course?</p>
        
-        <%= f.radio_button :smoker, 1 %> 
-        <%= label :smoker, 'Yes' %><br>
-        <%= f.radio_button :smoker, 0 %> 
-        <%= label :smoker, 'No' %>
-        <%= f.label :cigs_per_day %>
-        <%= f.number_field :cigs_per_day%>
-       
+        <%= f.radio_button :has_graduated, 1 %> 
+        <%= label :has_graduated, 'Yes' %><br>
+        <%= f.radio_button :has_graduated, 0 %> 
+        <%= label :has_graduated, 'No' %>
       </div>
       <br>
 
