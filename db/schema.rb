@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_29_220351) do
+ActiveRecord::Schema.define(version: 2019_01_30_223008) do
+
+  create_table "lesson_topics", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.integer "course_order"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer "tip_id"
+    t.integer "user_id"
+    t.integer "stars"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tip_id"], name: "index_ratings_on_tip_id"
+    t.index ["user_id"], name: "index_ratings_on_user_id"
+  end
+
+  create_table "tips", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "lesson_topic_id"
+    t.string "name"
+    t.text "description"
+    t.string "resource_link"
+    t.string "user_outcome"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lesson_topic_id"], name: "index_tips_on_lesson_topic_id"
+    t.index ["user_id"], name: "index_tips_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"

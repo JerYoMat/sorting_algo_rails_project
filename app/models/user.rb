@@ -1,4 +1,13 @@
 class User < ApplicationRecord
+    #ASSOCIATIONS 
+    has_many :tips 
+    has_many :lesson_topics, through: :tips 
+    has_many :ratings
+    has_many :lesson_topics, through: :ratings 
+    
+    
+    
+    #VALIDATIONS
     before_save { self.email = email.downcase }  #this appears unnecessary, however, as the email address is being indexed, the index may be case sensitive.  To not worry about this the email address is standardized prior to going in the db. 
     validates :name, presence: true, length: {maximum: 255}
     EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
