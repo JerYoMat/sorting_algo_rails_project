@@ -7,13 +7,14 @@ class UsersController < ApplicationController
   end
 
   def show 
-    set_user
+  
   end 
 
   def create
   
     @user = User.new(user_params)
     if @user.save 
+      flash[:success] = "welcome to BURNorSPURN"
       redirect_to @user 
     else 
       render 'new'
