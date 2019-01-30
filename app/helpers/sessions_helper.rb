@@ -22,5 +22,15 @@ module SessionsHelper
     def log_in_as(user)
       session[:user_id] = user.id
     end
+
+    #The below two methods are there to enable 'friendly-forwarding'.  If a user is prompted to log in when trying to access a page that requires login, then after providing credentials, the user experience is improved if the user is redirected to the original site they were trying to access.  
+    def redirect_back_or(default)
+      redirect_to(session[:forwarding_url] || default)
+      session.delete(:forwarding_url)
+    end
+
+    def store_location
+      session[:forwarding_url] = request.original_url if request.get?
+    end
     
 end
