@@ -1,5 +1,5 @@
 class TipsController < ApplicationController
-
+before_action :logged_in_user, only:[:new, :create, :edit, :update, :destroy]
   def new
     @tip = Tip.new 
   end 
@@ -15,11 +15,7 @@ class TipsController < ApplicationController
   end 
 
   def show 
-  end 
-
-  def index
-     
-  end 
+  end  
 
   def destroy 
   end 
