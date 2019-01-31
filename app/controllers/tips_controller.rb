@@ -17,7 +17,8 @@ class TipsController < ApplicationController
   def show 
   end 
 
-  def index 
+  def index
+     
   end 
 
   def destroy 

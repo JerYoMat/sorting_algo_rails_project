@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2019_01_30_223008) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["lesson_topic_id"], name: "index_tips_on_lesson_topic_id"
+    t.index ["user_id", "created_at"], name: "index_tips_on_user_id_and_created_at"
     t.index ["user_id"], name: "index_tips_on_user_id"
   end
 

@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     @user = User.new 
   end
 
-  def show 
+  def show #Show User data and the tips that they have provided 
+    @tips = @user.tips
+
   end 
 
   def create
