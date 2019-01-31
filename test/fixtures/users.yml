@@ -13,5 +13,5 @@ test_user_michael:
 test_user_angelo:
   id: 1001
   name: Angelo
-  email: something_valid@ggg.de
+  email: test22@example.com
   password_digest: <%= User.digest('password') %>

@@ -3,11 +3,9 @@ require 'pry'
 class TipsController < ApplicationController
 before_action :logged_in_user, only:[ :create, :destroy]
 before_action :set_tip, only: [:destroy, :edit, :show]
-
-
   def new
     @tip = Tip.new 
-    @options = LessonTopic.all.map{|l| [l.name, l.id]}
+    @options = LessonTopic.all.map{|l| [l.name, l.id]}.unshift(['', -1])  
   end 
 
   def create 
@@ -16,8 +14,11 @@ before_action :set_tip, only: [:destroy, :edit, :show]
       flash[:success] = "Thanks! Your tip has been added."
       redirect_to root_path
     else
-      @options = LessonTopic.all.map{|l| [l.name, l.id]}    
-      render 'static_pages/home'
+    
+      @options = LessonTopic.all.map{|l| [l.name, l.id]}.unshift(['', -1])    
+      @user = current_user
+        render 'tips/new'
+     
     end
   end 
 
@@ -34,7 +35,11 @@ before_action :set_tip, only: [:destroy, :edit, :show]
   end  
 
   def destroy 
-     @tip.destroy
+    if current_user != @tip.user 
+      redirect_to root_path 
+    else 
+      @tip.destroy
+    end 
   end 
 
   def index 

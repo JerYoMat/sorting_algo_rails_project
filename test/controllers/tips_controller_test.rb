@@ -25,4 +25,15 @@ class TipsControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to login_url
   end
 
+  test 'user cannot delete tip that does not belong the them' do 
+    log_in_as(@other_user)
+    tip = tips(:test_tip1)
+    assert_no_difference 'Tip.count' do 
+      delete tip_path(tip)
+    end 
+    assert_redirected_to root_url
+
+  end 
+
+
 end

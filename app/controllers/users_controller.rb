@@ -8,7 +8,11 @@ class UsersController < ApplicationController
   end
 
   def show #Show User data and the tips that they have provided 
+    if @user.tips
     @tips = @user.tips
+    else  
+      @tips = []
+    end
 
   end 
 
