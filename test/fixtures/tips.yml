@@ -9,14 +9,14 @@ test_tip1:
   name: String Formatting 
   description: Shows you how to output any strftime format
   resource_link: www.foragoodstrftime.com
-  lesson_topic_id: 1
-  user_id: 1000
+  lesson_topic: test_lesson_topic1
+  user: test_user_michael
   created_at: <%=2.hours.ago %>
 
 most_recent:
   id: 2
   name: The Most Recent Tip 
   description: So new!
-  lesson_topic_id: 1
-  user_id: 1000
+  lesson_topic: test_lesson_topic1
+  user: test_user_michael
   created_at: <%= Time.zone.now %>

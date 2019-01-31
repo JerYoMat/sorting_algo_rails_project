@@ -5,6 +5,6 @@
 # below each fixture, per the syntax in the comments below
 #
 test_rating1:
-  tip_id: 1
-  user_id: 1000 
+  tip: test_tip1
+  user: test_user_michael 
   stars: 3

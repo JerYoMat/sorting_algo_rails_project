@@ -8,5 +8,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
   resources :users
-  resources :tips 
+  resources :tips, only: [:create, :edit, :update, :destroy, :show]
+  resources :lessons, only: [:show, :index]
 end
