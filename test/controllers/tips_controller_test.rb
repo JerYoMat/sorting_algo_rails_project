@@ -15,4 +15,11 @@ class TipsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end 
+
+  test "should redirect destroy when not logged in" do
+    assert_no_difference 'Tip.count' do
+      delete tip_path(@tip)
+    end
+    assert_redirected_to login_url
+  end
 end
