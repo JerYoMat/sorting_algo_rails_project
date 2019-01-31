@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end 
 
   def correct_user 
-    @user = current_user
+    set_user
     redirect_to root_url unless @user == current_user
   end 
 end
