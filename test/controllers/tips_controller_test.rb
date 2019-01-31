@@ -3,6 +3,8 @@ require 'test_helper'
 class TipsControllerTest < ActionDispatch::IntegrationTest
   def setup
     @tip = tips(:test_tip1)
+    @owning_user = users(:test_user_michael)
+    @other_user = users(:test_user_angelo) 
   end 
 
   test 'should redirect create when not logged in' do 
@@ -22,4 +24,5 @@ class TipsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end
+
 end

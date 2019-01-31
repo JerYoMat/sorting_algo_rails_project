@@ -1,9 +1,10 @@
 class TipsController < ApplicationController
-before_action :logged_in_user, only:[:new, :create, :edit, :update, :destroy]
-before_action :correct_user, only: [:create, :edit, :update, :destroy] 
-before_action :set_tip, only: [:create, :edit, :update, :show, :destroy]
+before_action :logged_in_user, only:[:new, :create, :destroy]
+before_action :correct_user, only: [:create, :destroy] 
+before_action :set_tip, only: [:create, :show, :destroy, :edit]
   def new
     @tip = Tip.new 
+    @options = LessonTopic.all.map{|l| [l.name, l.id]}
   end 
 
   def create 
@@ -18,6 +19,9 @@ before_action :set_tip, only: [:create, :edit, :update, :show, :destroy]
   end 
 
   def edit 
+    if current_user != @tip.user 
+      redirect_to root_path 
+    end 
   end 
 
   def update 

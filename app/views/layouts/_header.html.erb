@@ -1,11 +1,12 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <%= link_to "BURNorSPURN", root_path, id: "logo" %>
+<header class="navbar navbar-fixed-top">
+      <div class="container" id="header">
+        <%= link_to "// LearnHELP", root_path, id: "logo" %>
         <nav>
         
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Home",   root_path %></li>
             <li><%= link_to "About",   about_path %></li>
+            <li><%= link_to "Lessons", lessons_path %></li>
             <% if logged_in?%>
               <%= render 'layouts/logged_in'%>
             <% else %>

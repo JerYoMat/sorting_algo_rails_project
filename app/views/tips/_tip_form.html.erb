@@ -3,9 +3,9 @@
   <div class="field">
 
     <%= f.text_field :title, placeholder: "Add your title..." %>
-    <%= f.text_field :link, placeholder: "Add your link..." %>
+    <%= f.text_field :resource_link, placeholder: "Add your link..." %>
     <%= f.text_area :description, placeholder: "Add a description..." %>
-    <%= f.select(:lesson_id, @options) %>
+    <%= f.select(:lesson_topic_id, @options) %>
 
   </div>
   <%= f.submit "Post", class: "standard-input-button" %>

@@ -1,6 +1,7 @@
 <li id="tip-<%= tip.id %>">
   <span class="user"><%= link_to tip.user.name, tip.user %></span>
   <span class="content"><%= tip.description %></span>
+  <span class="content"><%= link_to "Edit", edit_tip_path(tip) %></span>
   <span class="timestamp">
     Posted <%= time_ago_in_words(tip.created_at) %> ago.
   </span>
