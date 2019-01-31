@@ -1,7 +1,10 @@
+require 'pry'
+
 class TipsController < ApplicationController
-before_action :logged_in_user, only:[:new, :create, :destroy]
-before_action :correct_user, only: [:create, :destroy] 
-before_action :set_tip, only: [:create, :show, :destroy, :edit]
+before_action :logged_in_user, only:[ :create, :destroy]
+before_action :set_tip, only: [:destroy, :edit, :show]
+
+
   def new
     @tip = Tip.new 
     @options = LessonTopic.all.map{|l| [l.name, l.id]}
@@ -34,9 +37,12 @@ before_action :set_tip, only: [:create, :show, :destroy, :edit]
      @tip.destroy
   end 
 
+  def index 
+  end 
+
 private 
-  def user_params
-    params.require(:tip).permit(:name, :description, :lesson_topic, :resource_link)
+  def tip_params
+    params.require(:tip).permit(:name, :description, :lesson_topic_id, :resource_link)
   end
 
   def set_tip
